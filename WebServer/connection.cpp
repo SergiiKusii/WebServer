@@ -3,6 +3,7 @@
 #include <vector>
 #include "connection_manager.hpp"
 #include "request_handler.hpp"
+#include "wsTrace.hpp"
 
 namespace http {
 	namespace server {
@@ -17,6 +18,7 @@ namespace http {
 
 		void connection::start()
 		{
+			trace(1, "connection::start()");
 			do_read();
 		}
 
@@ -27,6 +29,7 @@ namespace http {
 
 		void connection::do_read()
 		{
+			trace(2, "connection::do_read() buffer: ", std::string(buffer_.data(), 10).c_str());
  			auto self(shared_from_this());
 			socket_.async_read_some(boost::asio::buffer(buffer_),
 				[this, self](boost::system::error_code ec, std::size_t bytes_transferred)
@@ -39,16 +42,19 @@ namespace http {
 
 					if (result == request_parser::good)
 					{
+						trace(1, "request_parser good");
 						request_handler_.handle_request(request_, reply_);
 						do_write();
 					}
 					else if (result == request_parser::bad)
 					{
+						trace(1, "request_parser bad");
 						reply_ = reply::stock_reply(reply::bad_request);
 						do_write();
 					}
 					else
 					{
+						trace(1, "request_parser indeterminate");
 						do_read();
 					}
 				}

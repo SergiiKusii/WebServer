@@ -1,5 +1,6 @@
 #include "request_parser.hpp"
 #include "request.hpp"
+#include "wsTrace.hpp"
 
 namespace http {
 	namespace server {
@@ -16,6 +17,7 @@ namespace http {
 
 		request_parser::result_type request_parser::consume(request& req, char input)
 		{
+			trace(4, "consume() state_: ", std::to_string(state_).c_str(), " input: ", (std::string() + input).c_str());
 			switch (state_)
 			{
 			case method_start:

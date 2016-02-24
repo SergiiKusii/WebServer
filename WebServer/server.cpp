@@ -1,6 +1,7 @@
 #include "server.hpp"
 #include <signal.h>
 #include <utility>
+#include "wsTrace.hpp"
 
 namespace http {
 	namespace server {
@@ -42,11 +43,13 @@ namespace http {
 			// have finished. While the server is running, there is always at least one
 			// asynchronous operation outstanding: the asynchronous accept call waiting
 			// for new incoming connections.
+			trace(1, "run()");
 			io_service_.run();
 		}
 
 		void server::do_accept()
 		{
+			trace(1, "do_accept()");
 			acceptor_.async_accept(socket_,
 				[this](boost::system::error_code ec)
 			{
@@ -54,6 +57,7 @@ namespace http {
 				// completion handler had a chance to run.
 				if (!acceptor_.is_open())
 				{
+					trace(1, "!acceptor_.is_open()");
 					return;
 				}
 

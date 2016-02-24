@@ -99,6 +99,7 @@
     <ClCompile Include="request_parser.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="WebServer.cpp" />
+    <ClCompile Include="wsTrace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="connection.hpp" />
@@ -110,6 +111,7 @@
     <ClInclude Include="request_handler.hpp" />
     <ClInclude Include="request_parser.hpp" />
     <ClInclude Include="server.hpp" />
+    <ClInclude Include="wsTrace.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

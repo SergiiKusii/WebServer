@@ -1,5 +1,6 @@
 #pragma once
 #include <tuple>
+#include "wsTrace.hpp"
 
 namespace http {
 	namespace server {
@@ -27,6 +28,7 @@ namespace http {
 			std::tuple<result_type, InputIterator> parse(request& req,
 				InputIterator begin, InputIterator end)
 			{
+				trace(4, "parse() req.method: ", req.method.c_str(), "req.uri: ", req.uri.c_str());
 				while (begin != end)
 				{
 					result_type result = consume(req, *begin++);

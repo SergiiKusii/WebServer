@@ -5,6 +5,7 @@
 #include "mime_types.hpp"
 #include "reply.hpp"
 #include "request.hpp"
+#include "wsTrace.hpp"
 
 namespace http {
 	namespace server {
@@ -16,6 +17,7 @@ namespace http {
 
 		void request_handler::handle_request(const request& req, reply& rep)
 		{
+			trace(1, "handle_request()");
 			// Decode url to path.
 			std::string request_path;
 			if (!url_decode(req.uri, request_path))
@@ -70,6 +72,7 @@ namespace http {
 
 		bool request_handler::url_decode(const std::string& in, std::string& out)
 		{
+			trace(1, "url_decode() ", "in: ", in.c_str());
 			out.clear();
 			out.reserve(in.size());
 			for (std::size_t i = 0; i < in.size(); ++i)

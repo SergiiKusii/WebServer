@@ -25,6 +25,9 @@
     <ClCompile Include="WebServer.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="wsTrace.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="connection.hpp">
@@ -52,7 +55,10 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="reply.hpp">
-      <Filter>Source</Filter>
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="wsTrace.hpp">
+      <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

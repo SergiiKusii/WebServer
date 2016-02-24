@@ -1,4 +1,5 @@
 #include "connection_manager.hpp"
+#include "wsTrace.hpp"
 
 namespace http {
 	namespace server {
@@ -9,6 +10,7 @@ namespace http {
 
 		void connection_manager::start(connection_ptr c)
 		{
+			trace(1, "connection_manager::start(connection_ptr c)");
 			connections_.insert(c);
 			c->start();
 		}
