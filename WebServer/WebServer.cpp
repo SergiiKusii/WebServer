@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 	try
 	{
 		// Check command line arguments.
-		if (0 && argc != 4)
+		if (argc != 4)
 		{
 			std::cerr << "Usage: http_server <address> <port> <doc_root>\n";
 			std::cerr << "  For IPv4, try:\n";
@@ -24,13 +24,14 @@ int main(int argc, char* argv[])
 		}
 
 		// Initialise the server.
-		//http::server::server s(argv[1], argv[2], argv[3]);
-		std::string sIp("127.0.0.1");
-		std::string sPort("28");
-		std::string sRoot("f:\\git\\WebServer");
+		http::server::server s(argv[1], argv[2], argv[3]);
 		
-		trace(6, "ip: ", sIp.c_str(), " port: ", sPort.c_str(), " Root: ", sRoot.c_str());
-		http::server::server s(sIp, sPort, sRoot);
+		//std::string sIp("127.0.0.1");
+		//std::string sPort("28");
+		//std::string sRoot("f:\\git\\WebServer");
+		
+		//trace(6, "ip: ", sIp.c_str(), " port: ", sPort.c_str(), " Root: ", sRoot.c_str());
+		//http::server::server s(sIp, sPort, sRoot);
 
 		// Run the server until stopped.
 		s.run();
