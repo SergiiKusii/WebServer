@@ -1,0 +1,39 @@
+server.cpp:(.text._ZN5boost4asio6detail20posix_signal_blockerC2Ev[_ZN5boost4asio                                                                                                                            
+6detail20posix_signal_blockerC5Ev]+0x4f): undefined reference to `pthread_sigmas                                                                                                                            
+k'                                                                                                                                                                                                          
+libserver.a(server.cpp.o): In function `boost::asio::detail::posix_signal_blocke                                                                                                                            
+r::~posix_signal_blocker()':                                                                                                                                                                                
+server.cpp:(.text._ZN5boost4asio6detail20posix_signal_blockerD2Ev[_ZN5boost4asio                                                                                                                            
+6detail20posix_signal_blockerD5Ev]+0x2d): undefined reference to `pthread_sigmas                                                                                                                            
+k'                                                                                                                                                                                                          
+libserver.a(server.cpp.o): In function `boost::asio::detail::posix_thread::~posi                                                                                                                            
+x_thread()':                                                                                                                                                                                                
+server.cpp:(.text._ZN5boost4asio6detail12posix_threadD2Ev[_ZN5boost4asio6detail1                                                                                                                            
+2posix_threadD5Ev]+0x26): undefined reference to `pthread_detach'                                                                                                                                           
+libserver.a(server.cpp.o): In function `boost::asio::detail::posix_thread::join(                                                                                                                            
+)':                                                                                                                                                                                                         
+server.cpp:(.text._ZN5boost4asio6detail12posix_thread4joinEv[_ZN5boost4asio6deta                                                                                                                            
+il12posix_thread4joinEv]+0x2b): undefined reference to `pthread_join'                                                                                                                                       
+libserver.a(server.cpp.o): In function `boost::asio::detail::posix_thread::start                                                                                                                            
+_thread(boost::asio::detail::posix_thread::func_base*)':                                                                                                                                                    
+server.cpp:(.text._ZN5boost4asio6detail12posix_thread12start_threadEPNS2_9func_b                                                                                                                            
+aseE[_ZN5boost4asio6detail12posix_thread12start_threadEPNS2_9func_baseE]+0x29):                                                                                                                             
+undefined reference to `pthread_create'                                                                                                                                                                     
+libserver.a(server.cpp.o): In function `_ZN9__gnu_cxx13new_allocatorIN4http6serv                                                                                                                            
+er10connectionEE9constructIS3_IN5boost4asio19basic_stream_socketINS7_2ip3tcpENS7                                                                                                                            
+_21stream_socket_serviceISA_EEEERNS2_18connection_managerERNS2_15request_handler                                                                                                                            
+EEEEvPT_DpOT0_':                                                                                                                                                                                            
+server.cpp:(.text._ZN9__gnu_cxx13new_allocatorIN4http6server10connectionEE9const                                                                                                                            
+ructIS3_IN5boost4asio19basic_stream_socketINS7_2ip3tcpENS7_21stream_socket_servi                                                                                                                            
+ceISA_EEEERNS2_18connection_managerERNS2_15request_handlerEEEEvPT_DpOT0_[_ZN9__g                                                                                                                            
+nu_cxx13new_allocatorIN4http6server10connectionEE9constructIS3_IN5boost4asio19ba                                                                                                                            
+sic_stream_socketINS7_2ip3tcpENS7_21stream_socket_serviceISA_EEEERNS2_18connecti                                                                                                                            
+on_managerERNS2_15request_handlerEEEEvPT_DpOT0_]+0x8b): undefined reference to `                                                                                                                            
+http::server::connection::connection(boost::asio::basic_stream_socket<boost::asi                                                                                                                            
+o::ip::tcp, boost::asio::stream_socket_service<boost::asio::ip::tcp> >, http::se                                                                                                                            
+rver::connection_manager&, http::server::request_handler&)'                                                                                                                                                 
+collect2: error: ld returned 1 exit status                                                                                                                                                                  
+make[2]: *** [WebServerRun] Error 1                                                                                                                                                                         
+make[1]: *** [CMakeFiles/WebServerRun.dir/all] Error 2                                                                                                                                                      
+make: *** [all] Error 2                                                                                                                                                                                     
+box@054cdbdaf33f: ~/final $  
