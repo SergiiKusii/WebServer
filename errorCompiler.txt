@@ -1,14 +1,60 @@
-
-
-CMakeFiles/WebServerRun.dir/WebServer/WebServer.cpp.o: In function `__static_ini
-tialization_and_destruction_0(int, int)':                                       
-WebServer.cpp:(.text+0x357): undefined reference to `boost::system::generic_cate
-gory()'                                                                         
-WebServer.cpp:(.text+0x363): undefined reference to `boost::system::generic_cate
-gory()'                                                                         
-WebServer.cpp:(.text+0x36f): undefined reference to `boost::system::system_categ
-ory()'  
-
+[100%] Building CXX object CMakeFiles/WebServerRun.dir/WebServer/WebServer.cpp.o                                                                                                                            
+Linking CXX executable WebServerRun                                                                                                                                                                         
+CMakeFiles/WebServerRun.dir/WebServer/WebServer.cpp.o: In function `__static_ini                                                                                                                            
+tialization_and_destruction_0(int, int)':                                                                                                                                                                   
+WebServer.cpp:(.text+0x357): undefined reference to `boost::system::generic_cate                                                                                                                            
+gory()'                                                                                                                                                                                                     
+WebServer.cpp:(.text+0x363): undefined reference to `boost::system::generic_cate                                                                                                                            
+gory()'                                                                                                                                                                                                     
+WebServer.cpp:(.text+0x36f): undefined reference to `boost::system::system_categ                                                                                                                            
+ory()'                                                                                                                                                                                                      
+CMakeFiles/WebServerRun.dir/WebServer/WebServer.cpp.o: In function `boost::syste                                                                                                                            
+m::error_code::error_code()':                                                                                                                                                                               
+WebServer.cpp:(.text._ZN5boost6system10error_codeC2Ev[_ZN5boost6system10error_co                                                                                                                            
+deC5Ev]+0x17): undefined reference to `boost::system::system_category()'                                                                                                                                    
+CMakeFiles/WebServerRun.dir/WebServer/WebServer.cpp.o: In function `boost::asio:                                                                                                                            
+:error::get_system_category()':                                                                                                                                                                             
+WebServer.cpp:(.text._ZN5boost4asio5error19get_system_categoryEv[_ZN5boost4asio5                                                                                                                            
+error19get_system_categoryEv]+0x5): undefined reference to `boost::system::syste                                                                                                                            
+m_category()'                                                                                                                                                                                               
+libserver.a(server.cpp.o): In function `http::server::server::server(std::string                                                                                                                            
+ const&, std::string const&, std::string const&)':                                                                                                                                                          
+server.cpp:(.text+0x1a3): undefined reference to `http::server::connection_manag                                                                                                                            
+er::connection_manager()'                                                                                                                                                                                   
+server.cpp:(.text+0x1e0): undefined reference to `http::server::request_handler:                                                                                                                            
+:request_handler(std::string const&)'                                                                                                                                                                       
+libserver.a(server.cpp.o): In function `http::server::server::do_accept()::{lamb                                                                                                                            
+da(boost::system::error_code)#1}::operator()(boost::system::error_code) const':                                                                                                                             
+server.cpp:(.text+0x54f): undefined reference to `http::server::connection_manag                                                                                                                            
+er::start(std::shared_ptr<http::server::connection>)'                                                                                                                                                       
+libserver.a(server.cpp.o): In function `http::server::server::do_await_stop()::{                                                                                                                            
+lambda(boost::system::error_code, int)#1}::operator()(boost::system::error_code,                                                                                                                            
+ int) const':                                                                                                                                                                                               
+server.cpp:(.text+0x623): undefined reference to `http::server::connection_manag                                                                                                                            
+er::stop_all()'                                                                                                                                                                                             
+libserver.a(server.cpp.o): In function `__static_initialization_and_destruction_                                                                                                                            
+0(int, int)':                                                                                                                                                                                               
+server.cpp:(.text+0x120b): undefined reference to `boost::system::generic_catego                                                                                                                            
+ry()'                                                                                                                                                                                                       
+server.cpp:(.text+0x1217): undefined reference to `boost::system::generic_catego                                                                                                                            
+ry()'                                                                                                                                                                                                       
+server.cpp:(.text+0x1223): undefined reference to `boost::system::system_categor                                                                                                                            
+y()'                                                                                                                                                                                                        
+libserver.a(server.cpp.o): In function `boost::asio::detail::posix_signal_blocke                                                                                                                            
+r::posix_signal_blocker()':                                                                                                                                                                                 
+server.cpp:(.text._ZN5boost4asio6detail20posix_signal_blockerC2Ev[_ZN5boost4asio                                                                                                                            
+6detail20posix_signal_blockerC5Ev]+0x4f): undefined reference to `pthread_sigmas                                                                                                                            
+k'                                                                                                                                                                                                          
+libserver.a(server.cpp.o): In function `boost::asio::detail::posix_signal_blocke                                                                                                                            
+r::~posix_signal_blocker()':                                                                                                                                                                                
+server.cpp:(.text._ZN5boost4asio6detail20posix_signal_blockerD2Ev[_ZN5boost4asio                                                                                                                            
+6detail20posix_signal_blockerD5Ev]+0x2d): undefined reference to `pthread_sigmas                                                                                                                            
+k'                                                                                                                                                                                                          
+libserver.a(server.cpp.o): In function `boost::asio::detail::posix_thread::~posi                                                                                                                            
+x_thread()':                                                                                                                                                                                                
+server.cpp:(.text._ZN5boost4asio6detail12posix_threadD2Ev[_ZN5boost4asio6detail1                                                                                                                            
+2posix_threadD5Ev]+0x26): undefined reference to `pthread_detach'                                                                                                                                           
+libserver.a(server.cpp.o): In function `boost::asio::detail::posix_thread::join(
 ##################################################################################
 
 server.cpp:(.text._ZN5boost4asio6detail20posix_signal_blockerC2Ev[_ZN5boost4asio                                                                                                                            
