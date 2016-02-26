@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -L/usr/lib -I/usr/include -I/usr/include/freetype2 -lpthread -lboost_system")
 
-project(WebServer)
+project(WebServerPrj)
 
 set(SOURCE_EXE ./WebServer/WebServer.cpp)
 
@@ -24,6 +23,6 @@ add_library(request_parser STATIC ${request_parser_lib})
 add_library(server STATIC ${server_lib})
 add_library(wsTrace STATIC ${wsTrace_lib})
 
-add_executable(WebServer ${SOURCE_EXE})
+add_executable(WebServerRun ${SOURCE_EXE})
 
-target_link_libraries(WebServer connection connection_manager mime_types reply request_handler request_parser server wsTrace) 
+target_link_libraries(WebServerRun connection connection_manager mime_types reply request_handler request_parser server wsTrace) 

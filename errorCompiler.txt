@@ -1,3 +1,16 @@
+
+
+CMakeFiles/WebServerRun.dir/WebServer/WebServer.cpp.o: In function `__static_ini
+tialization_and_destruction_0(int, int)':                                       
+WebServer.cpp:(.text+0x357): undefined reference to `boost::system::generic_cate
+gory()'                                                                         
+WebServer.cpp:(.text+0x363): undefined reference to `boost::system::generic_cate
+gory()'                                                                         
+WebServer.cpp:(.text+0x36f): undefined reference to `boost::system::system_categ
+ory()'  
+
+##################################################################################
+
 server.cpp:(.text._ZN5boost4asio6detail20posix_signal_blockerC2Ev[_ZN5boost4asio                                                                                                                            
 6detail20posix_signal_blockerC5Ev]+0x4f): undefined reference to `pthread_sigmas                                                                                                                            
 k'                                                                                                                                                                                                          
