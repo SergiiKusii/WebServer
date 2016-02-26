@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 2.8)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -L/usr/lib -I/usr/include -I/usr/include/freetype2 -lpthread -lboost_system -lboost_filesystem -lboost_thread")
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -lpthread -lboost_system -lboost_filesystem -lboost_thread")
-set(CMAKE_CXX_FLAGS "-std=c++11")
-set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_STANDARD 11)
 project(WebServerPrj)
+set(CMAKE_CXX_FLAGS "-std=c++11")
+
 find_package(Boost 1.54.0)
 if(Boost_FOUND)
 	include_directories(${Boost_INCLUDE_DIRS})
