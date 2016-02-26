@@ -6,7 +6,7 @@
 #include "server.hpp"
 #include "wsTrace.hpp"
 
-//#define ISLINUX
+#define ISLINUX
 
 #ifdef ISLINUX
 #include <unistd.h>
@@ -22,13 +22,19 @@ int main(int argc, char* argv[])
 
 #ifdef ISLINUX
 	int rez = 0;
-	while ((rez = getopt(argc, argv, "ab:C::d")) != -1) {
+	while ((rez = getopt(argc, argv, "h:p:d:e")) != -1) {
 		switch (rez) {
-		case 'a': printf("found argument \"a\".\n"); break;
-		case 'b': printf("found argument \"b = %s\".\n", optarg); break;
-		case 'C': printf("found argument \"C = %s\".\n", optarg); break;
-		case 'd': printf("found argument \"d\"\n"); break;
-		case '?': printf("Error found !\n"); break;
+		case 'h': 
+			sIp += optarg; 
+			break;
+		case 'p': 
+			sPort += optarg; 
+			break;
+		case 'd': 
+			sRoot += optarg;
+			break;
+		default:
+			return -1;
 		};
 	};
 #else
