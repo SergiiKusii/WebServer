@@ -12,7 +12,7 @@
 
 #ifdef ISLINUX
 #include <unistd.h>
-#include <sys/types>
+//#include <sys/types>
 #endif
 
 /*typedef*/ struct communicatios
@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		runServer(communicatios comm);
+		runServer(comm);
 	}
 
 #else
