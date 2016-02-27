@@ -62,7 +62,7 @@ namespace http {
 			rep.status = reply::ok;
 			char buf[512];
 			while (is.read(buf, sizeof(buf)).gcount() > 0)
-				rep.content.append(buf, is.gcount());
+				rep.content.append(buf, (size_t)is.gcount());
 			rep.headers.resize(2);
 			rep.headers[0].name = "Content-Length";
 			rep.headers[0].value = std::to_string(rep.content.size());

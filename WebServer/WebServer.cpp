@@ -6,16 +6,24 @@
 #include "server.hpp"
 #include "wsTrace.hpp"
 
-#define ISLINUX
+#include <thread>
+
+//#define ISLINUX
 
 #ifdef ISLINUX
 #include <unistd.h>
+#include <sys/types>
 #endif
 
-
-int main(int argc, char* argv[])
+/*typedef*/ struct communicatios
 {
+	std::string sIp;
+	std::string sPort;
+	std::string sRoot;
+} /*COMMUN*/; 
 
+communicatios scanPram(int argc, char* argv[])
+{
 	std::string sIp;
 	std::string sPort;
 	std::string sRoot;
@@ -24,17 +32,17 @@ int main(int argc, char* argv[])
 	int rez = 0;
 	while ((rez = getopt(argc, argv, "h:p:d:e")) != -1) {
 		switch (rez) {
-		case 'h': 
-			sIp += optarg; 
+		case 'h':
+			sIp += optarg;
 			break;
-		case 'p': 
-			sPort += optarg; 
+		case 'p':
+			sPort += optarg;
 			break;
-		case 'd': 
+		case 'd':
 			sRoot += optarg;
 			break;
 		default:
-			return -1;
+			return communicatios();
 		};
 	};
 #else
@@ -45,21 +53,24 @@ int main(int argc, char* argv[])
 		std::cerr << "    receiver 0.0.0.0 80 .\n";
 		std::cerr << "  For IPv6, try:\n";
 		std::cerr << "    receiver 0::0 80 .\n";
-		return 1;
-	}
+		return communicatios();
+		}
 
 	sIp += argv[1];
 	sPort += argv[2];
 	sRoot += argv[3];
 #endif
+
+	return{ sIp, sPort, sRoot };
+}
+
+void runServer(communicatios comm)
+{
+
 	try
-	{		
-		//std::string sIp("127.0.0.1");
-		//std::string sPort("28");
-		//std::string sRoot("f:\\git\\WebServer");
-		
+	{
 		//trace(6, "ip: ", sIp.c_str(), " port: ", sPort.c_str(), " Root: ", sRoot.c_str());
-		http::server::server s(sIp, sPort, sRoot);
+		http::server::server s(comm.sIp, comm.sPort, comm.sRoot);
 
 		// Run the server until stopped.
 		s.run();
@@ -69,8 +80,29 @@ int main(int argc, char* argv[])
 		std::cerr << "exception: " << e.what() << "\n";
 	}
 
-	int a;
+}
+
+int main(int argc, char* argv[])
+{
+	communicatios comm = scanPram(argc, argv);
+
+#ifdef ISLINUX
+
+	if (fork())
+	{
+		return 0;
+	}
+	else
+	{
+		runServer(communicatios comm);
+	}
+
+#else
+	std::thread tr(runServer, comm);
+
+	int a; 
 	std::cin >> a;
+#endif
 
 	return 0;
 }
