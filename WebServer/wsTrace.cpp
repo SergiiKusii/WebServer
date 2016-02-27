@@ -4,6 +4,7 @@
 
 void trace(size_t n, ...)
 {
+	return;
 	va_list p;
 	va_start(p, n);
 	for (size_t i = 0; i < n; i++)
