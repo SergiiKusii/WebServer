@@ -8,7 +8,7 @@
 
 #include <thread>
 
-//#define ISLINUX
+#define ISLINUX
 
 #ifdef ISLINUX
 #include <unistd.h>
