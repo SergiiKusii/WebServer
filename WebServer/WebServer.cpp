@@ -77,7 +77,8 @@ void runServer(communicatios comm)
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "exception: " << e.what() << "\n";
+		//std::cerr << "exception: " << e.what() << "\n";
+		return;
 	}
 
 }

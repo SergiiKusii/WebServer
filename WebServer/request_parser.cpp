@@ -2,6 +2,8 @@
 #include "request.hpp"
 #include "wsTrace.hpp"
 
+bool gIsPar = false;
+
 namespace http {
 	namespace server {
 
@@ -49,12 +51,24 @@ namespace http {
 			case uri:
 				if (input == ' ')
 				{
+					gIsPar = false;
 					state_ = http_version_h;
 					return indeterminate;
 				}
 				else if (is_ctl(input))
 				{
 					return bad;
+				}
+				else if (input == '?')
+				{
+					trace(1, "is_tspecial: ");
+					gIsPar = true;
+					return indeterminate;
+				}
+				else if (gIsPar)
+				{
+					trace(1, "is_tspecial: skip");
+					return indeterminate;
 				}
 				else
 				{

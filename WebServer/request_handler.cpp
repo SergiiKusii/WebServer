@@ -51,6 +51,7 @@ namespace http {
 
 			// Open the file to send back.
 			std::string full_path = doc_root_ + request_path;
+			trace(2, "file: ", full_path.c_str());
 			std::ifstream is(full_path.c_str(), std::ios::in | std::ios::binary);
 			if (!is)
 			{
